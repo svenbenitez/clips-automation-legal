@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clips Automation Privacy</title>
+
+<meta name="description" content="How Clips Automation handles data when it uploads your own video clips to YouTube and TikTok.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#faf8fb; --surface:#ffffff; --surface-2:#f1edf5; --border:#e2dbe9;
+    --text:#201c29; --text-muted:#635a72;
+    --accent:#e0125a; --accent-2:#0c9c86;
+    --font-display:'Zilla Slab',ui-serif,Georgia,serif;
+    --font-body:'IBM Plex Sans',ui-sans-serif,system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15121b; --surface:#1e1a26; --surface-2:#262032; --border:#372f44;
+      --text:#eee8f2; --text-muted:#a89fb8;
+      --accent:#ff2f6e; --accent-2:#33e6c4;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15121b; --surface:#1e1a26; --surface-2:#262032; --border:#372f44;
+    --text:#eee8f2; --text-muted:#a89fb8;
+    --accent:#ff2f6e; --accent-2:#33e6c4;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--text); font-family:var(--font-body);
+    margin:0; padding:0; line-height:1.65; font-size:16px;
+  }
+  a{color:var(--accent-2);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent-2); outline-offset:2px;}
+
+  .shell{max-width:1080px; margin:0 auto; padding:0 24px 96px;}
+
+  header.top{
+    display:flex; align-items:center; gap:14px;
+    padding:36px 0 28px; border-bottom:1px solid var(--border);
+  }
+  .mark{width:44px; height:44px; border-radius:50%; flex:none;
+    background:linear-gradient(155deg,var(--accent),#a3134a);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-weight:500; color:#fff; font-size:15px;
+  }
+  .brandline{display:flex; flex-direction:column; gap:2px;}
+  .brandline .app{font-family:var(--font-mono); font-size:13px; letter-spacing:.06em; color:var(--text-muted); text-transform:uppercase;}
+  .brandline h1{font-family:var(--font-display); font-weight:600; font-size:1.7rem; margin:0; text-wrap:balance;}
+
+  .meta{display:flex; gap:18px; flex-wrap:wrap; margin-top:26px; font-family:var(--font-mono); font-size:13px; color:var(--text-muted);}
+  .meta b{color:var(--text); font-weight:500;}
+
+  .layout{display:grid; grid-template-columns:220px minmax(0,1fr); gap:56px; margin-top:44px;}
+  @media (max-width:820px){ .layout{grid-template-columns:1fr;} nav.toc{display:none;} }
+
+  nav.toc{position:sticky; top:32px; align-self:start; display:flex; flex-direction:column; gap:2px;}
+  nav.toc a{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text-muted); text-decoration:none;
+    padding:7px 10px; border-radius:6px; border:1px solid transparent;
+  }
+  nav.toc a:hover{color:var(--text); background:var(--surface-2);}
+  nav.toc .num{color:var(--accent); margin-right:8px;}
+
+  main{max-width:680px;}
+  main > p.lede{font-size:1.08rem; color:var(--text-muted); margin-top:0;}
+
+  section{margin-top:44px; scroll-margin-top:32px;}
+  section h2{
+    font-family:var(--font-display); font-weight:600; font-size:1.32rem;
+    display:flex; align-items:baseline; gap:12px; margin:0 0 14px; text-wrap:balance;
+  }
+  section h2 .num{font-family:var(--font-mono); font-size:.85rem; color:var(--accent); font-weight:500;}
+  section p, section li{color:var(--text); max-width:66ch;}
+  section p + p{margin-top:12px;}
+  ul{padding-left:1.2em; margin:12px 0;}
+  li + li{margin-top:8px;}
+
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:18px 20px; margin-top:16px;
+  }
+  .card .k{font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--text-muted);}
+  .card .v{margin-top:4px; font-size:.98rem;}
+
+  code{font-family:var(--font-mono); background:var(--surface-2); padding:.15em .4em; border-radius:5px; font-size:.9em;}
+
+  footer{
+    margin-top:64px; padding-top:24px; border-top:1px solid var(--border);
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text-muted);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div class="mark">CA</div>
+    <div class="brandline">
+      <span class="app">Clips Automation</span>
+      <h1>Privacy Policy</h1>
+    </div>
+  </header>
+
+  <div class="meta">
+    <span><b>Effective</b> Sept 4, 2026</span>
+    <span><b>Operator</b> a single individual creator, self-hosted</span>
+    <span><b>Scope</b> the operator's own YouTube &amp; TikTok accounts only</span>
+  </div>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Sections">
+      <a href="#what-it-is"><span class="num">01</span>What this is</a>
+      <a href="#data-in"><span class="num">02</span>Data it reads</a>
+      <a href="#data-out"><span class="num">03</span>Where data goes</a>
+      <a href="#storage"><span class="num">04</span>Storage &amp; retention</a>
+      <a href="#tokens"><span class="num">05</span>OAuth tokens</a>
+      <a href="#third-parties"><span class="num">06</span>Third parties</a>
+      <a href="#rights"><span class="num">07</span>Your controls</a>
+      <a href="#contact"><span class="num">08</span>Contact</a>
+    </nav>
+
+    <main>
+      <p class="lede">Clips Automation is a personal upload script, not a public service. It runs on one person's own computer and publishes that same person's own video clips to their own YouTube and TikTok accounts. This page explains, plainly, what data the script touches and what it does with it.</p>
+
+      <section id="what-it-is">
+        <h2><span class="num">01</span>What this is</h2>
+        <p>Clips Automation is a local Python program. It is not a hosted website, it does not have visitors, and it does not create accounts for anyone. The only person who operates it is the developer who installed it, uploading video files they made themselves to social accounts they own.</p>
+      </section>
+
+      <section id="data-in">
+        <h2><span class="num">02</span>Data it reads</h2>
+        <p>To do its job, the script reads, from files stored on the operator's own computer:</p>
+        <ul>
+          <li>Video clip files (<code>.mp4</code>) the operator placed in a local folder.</li>
+          <li>A spreadsheet (<code>schedule.csv</code>) the operator filled in themselves: a title, description, hashtags, publish time and privacy level for each clip.</li>
+          <li>OAuth credentials issued by Google and TikTok for the operator's own accounts (see <a href="#tokens">§05</a>).</li>
+        </ul>
+        <p>No other person's data — names, emails, viewing habits, comments — is collected, scraped, or processed at any point.</p>
+      </section>
+
+      <section id="data-out">
+        <h2><span class="num">03</span>Where data goes</h2>
+        <p>Each clip and its metadata is sent, over an encrypted connection, straight to two destinations and nowhere else:</p>
+        <div class="card"><div class="k">YouTube Data API v3</div><div class="v">operated by Google LLC, to publish the video to the operator's own channel.</div></div>
+        <div class="card"><div class="k">TikTok Content Posting API</div><div class="v">operated by TikTok Inc., to publish the video to the operator's own TikTok account.</div></div>
+        <p>The script itself has no server, no database, and no analytics — it does not phone home to the developer of this script or anyone else.</p>
+      </section>
+
+      <section id="storage">
+        <h2><span class="num">04</span>Storage &amp; retention</h2>
+        <p>Everything — video files, the metadata spreadsheet, logs, and access tokens — stays on the operator's own hard drive, in the folder they installed the script into. Deleting that folder deletes all of it. Nothing is copied to any server the developer of this tool controls.</p>
+      </section>
+
+      <section id="tokens">
+        <h2><span class="num">05</span>OAuth tokens</h2>
+        <p>Logging in once grants the script a token scoped only to <code>upload video</code> permissions — it cannot read messages, contacts, analytics, or anything outside posting content. Tokens are stored locally in plain files (<code>youtube_token.json</code>, <code>tiktok_token.json</code>) and used only to authenticate the operator's own uploads.</p>
+      </section>
+
+      <section id="third-parties">
+        <h2><span class="num">06</span>Third parties</h2>
+        <p>Data is never sold, rented, or shared with advertisers, analytics vendors, or any party beyond the YouTube and TikTok APIs the clip is being published through — because publishing the clip is the entire purpose of the script.</p>
+      </section>
+
+      <section id="rights">
+        <h2><span class="num">07</span>Your controls</h2>
+        <p>Because the operator and the "user" are the same person, control is direct:</p>
+        <ul>
+          <li><b>Revoke access</b> any time from <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions</a> or TikTok's app settings.</li>
+          <li><b>Delete everything</b> by deleting the local project folder — no server-side copy remains.</li>
+          <li><b>Stop uploads</b> by ending the scheduled task described in the project's README.</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2><span class="num">08</span>Contact</h2>
+        <p>Questions about this policy or this app's use of the TikTok / YouTube APIs can be sent to <a href="mailto:clipsdetodo776@gmail.com">clipsdetodo776@gmail.com</a>.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <span>Clips Automation — personal-use upload tool</span>
+    <span>Last reviewed 2026-09-04</span>
+  </footer>
+</div>
+
+</body>
+</html>

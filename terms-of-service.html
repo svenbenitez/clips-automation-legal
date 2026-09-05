@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clips Automation Terms</title>
+
+<meta name="description" content="Terms of service for Clips Automation, a personal script that uploads its operator's own clips to YouTube and TikTok.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#faf8fb; --surface:#ffffff; --surface-2:#f1edf5; --border:#e2dbe9;
+    --text:#201c29; --text-muted:#635a72;
+    --accent:#e0125a; --accent-2:#0c9c86;
+    --font-display:'Zilla Slab',ui-serif,Georgia,serif;
+    --font-body:'IBM Plex Sans',ui-sans-serif,system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15121b; --surface:#1e1a26; --surface-2:#262032; --border:#372f44;
+      --text:#eee8f2; --text-muted:#a89fb8;
+      --accent:#ff2f6e; --accent-2:#33e6c4;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15121b; --surface:#1e1a26; --surface-2:#262032; --border:#372f44;
+    --text:#eee8f2; --text-muted:#a89fb8;
+    --accent:#ff2f6e; --accent-2:#33e6c4;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--text); font-family:var(--font-body);
+    margin:0; padding:0; line-height:1.65; font-size:16px;
+  }
+  a{color:var(--accent-2);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent-2); outline-offset:2px;}
+
+  .shell{max-width:1080px; margin:0 auto; padding:0 24px 96px;}
+
+  header.top{
+    display:flex; align-items:center; gap:14px;
+    padding:36px 0 28px; border-bottom:1px solid var(--border);
+  }
+  .mark{width:44px; height:44px; border-radius:50%; flex:none;
+    background:linear-gradient(155deg,var(--accent),#a3134a);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-weight:500; color:#fff; font-size:15px;
+  }
+  .brandline{display:flex; flex-direction:column; gap:2px;}
+  .brandline .app{font-family:var(--font-mono); font-size:13px; letter-spacing:.06em; color:var(--text-muted); text-transform:uppercase;}
+  .brandline h1{font-family:var(--font-display); font-weight:600; font-size:1.7rem; margin:0; text-wrap:balance;}
+
+  .meta{display:flex; gap:18px; flex-wrap:wrap; margin-top:26px; font-family:var(--font-mono); font-size:13px; color:var(--text-muted);}
+  .meta b{color:var(--text); font-weight:500;}
+
+  .layout{display:grid; grid-template-columns:220px minmax(0,1fr); gap:56px; margin-top:44px;}
+  @media (max-width:820px){ .layout{grid-template-columns:1fr;} nav.toc{display:none;} }
+
+  nav.toc{position:sticky; top:32px; align-self:start; display:flex; flex-direction:column; gap:2px;}
+  nav.toc a{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text-muted); text-decoration:none;
+    padding:7px 10px; border-radius:6px; border:1px solid transparent;
+  }
+  nav.toc a:hover{color:var(--text); background:var(--surface-2);}
+  nav.toc .num{color:var(--accent); margin-right:8px;}
+
+  main{max-width:680px;}
+  main > p.lede{font-size:1.08rem; color:var(--text-muted); margin-top:0;}
+
+  section{margin-top:44px; scroll-margin-top:32px;}
+  section h2{
+    font-family:var(--font-display); font-weight:600; font-size:1.32rem;
+    display:flex; align-items:baseline; gap:12px; margin:0 0 14px; text-wrap:balance;
+  }
+  section h2 .num{font-family:var(--font-mono); font-size:.85rem; color:var(--accent); font-weight:500;}
+  section p, section li{color:var(--text); max-width:66ch;}
+  section p + p{margin-top:12px;}
+  ul{padding-left:1.2em; margin:12px 0;}
+  li + li{margin-top:8px;}
+
+  code{font-family:var(--font-mono); background:var(--surface-2); padding:.15em .4em; border-radius:5px; font-size:.9em;}
+
+  footer{
+    margin-top:64px; padding-top:24px; border-top:1px solid var(--border);
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text-muted);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div class="mark">CA</div>
+    <div class="brandline">
+      <span class="app">Clips Automation</span>
+      <h1>Terms of Service</h1>
+    </div>
+  </header>
+
+  <div class="meta">
+    <span><b>Effective</b> Sept 4, 2026</span>
+    <span><b>Operator</b> a single individual creator, self-hosted</span>
+    <span><b>Distribution</b> not distributed to other users</span>
+  </div>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Sections">
+      <a href="#service"><span class="num">01</span>The service</a>
+      <a href="#eligibility"><span class="num">02</span>Who may run it</a>
+      <a href="#content"><span class="num">03</span>Content &amp; ownership</a>
+      <a href="#platform-rules"><span class="num">04</span>Platform rules</a>
+      <a href="#no-warranty"><span class="num">05</span>No warranty</a>
+      <a href="#liability"><span class="num">06</span>Liability</a>
+      <a href="#changes"><span class="num">07</span>Changes</a>
+      <a href="#contact"><span class="num">08</span>Contact</a>
+    </nav>
+
+    <main>
+      <p class="lede">These terms cover the use of Clips Automation — a personal script that uploads its operator's own video clips to YouTube and TikTok on a schedule the operator sets. By running the script against a TikTok or YouTube account, the operator agrees to the terms below.</p>
+
+      <section id="service">
+        <h2><span class="num">01</span>The service</h2>
+        <p>Clips Automation reads video files and a scheduling spreadsheet from the operator's own computer, then calls the official YouTube Data API and TikTok Content Posting API to publish those clips with the title, description, hashtags and timing the operator specified.</p>
+        <p>It is provided as a private automation tool for its single operator, not as a hosted product offered to the public.</p>
+      </section>
+
+      <section id="eligibility">
+        <h2><span class="num">02</span>Who may run it</h2>
+        <p>Only the developer operating their own copy of the script, against social accounts they themselves control and have authenticated via OAuth, may use it. It is not intended to be run on behalf of, or against the accounts of, anyone else.</p>
+      </section>
+
+      <section id="content">
+        <h2><span class="num">03</span>Content &amp; ownership</h2>
+        <p>The operator is solely responsible for every clip they schedule: that they own it or hold the rights to post it, that its title, description and hashtags are accurate, and that it complies with YouTube's and TikTok's own community guidelines and terms of service. Clips Automation does not review, moderate, or endorse any content it uploads — it only automates the mechanical act of publishing.</p>
+      </section>
+
+      <section id="platform-rules">
+        <h2><span class="num">04</span>Platform rules</h2>
+        <p>Use of the YouTube Data API and the TikTok Content Posting API through this script remains subject to Google's and TikTok's own developer terms, quotas, and content policies. A platform suspending, rate-limiting or rejecting an upload is that platform's decision, not a failure of these terms.</p>
+      </section>
+
+      <section id="no-warranty">
+        <h2><span class="num">05</span>No warranty</h2>
+        <p>The script is provided <b>as is</b>, with no guarantee that an upload will succeed, publish at the exact scheduled time, or remain compatible with either platform's API as it changes over time.</p>
+      </section>
+
+      <section id="liability">
+        <h2><span class="num">06</span>Liability</h2>
+        <p>The operator runs this script at their own risk and bears sole responsibility for any consequence of the content it publishes — including copyright claims, account penalties, or removal by either platform.</p>
+      </section>
+
+      <section id="changes">
+        <h2><span class="num">07</span>Changes</h2>
+        <p>These terms may be updated as the script's functionality changes. The date at the top of this page marks the last revision.</p>
+      </section>
+
+      <section id="contact">
+        <h2><span class="num">08</span>Contact</h2>
+        <p>Questions about these terms can be sent to <a href="mailto:clipsdetodo776@gmail.com">clipsdetodo776@gmail.com</a>.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <span>Clips Automation — personal-use upload tool</span>
+    <span>Last reviewed 2026-09-04</span>
+  </footer>
+</div>
+
+</body>
+</html>
